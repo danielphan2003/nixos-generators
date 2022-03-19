@@ -15,6 +15,7 @@ let
   flakeSystem = flake.outputs.packages."${system}".nixosConfigurations."${flakeAttr}" or flake.outputs.nixosConfigurations."${flakeAttr}";
 in
   if flakeUri != null then
+    builtins.trace flakeSystem
     flakeSystem.extendModules {
       modules = [ module formatConfig ];
     }
