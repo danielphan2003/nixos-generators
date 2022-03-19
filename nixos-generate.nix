@@ -16,7 +16,7 @@ let
 in
   if flakeUri != null then
     builtins.trace flakeSystem
-    flakeSystem.extendModules {
+    flakeSystem._module.args.extendModules {
       modules = [ module formatConfig ];
     }
   else
